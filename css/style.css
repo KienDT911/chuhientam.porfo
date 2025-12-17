@@ -291,7 +291,7 @@ nav {
 .hero-footer {
     position: absolute;
     bottom: 40px;
-    left: 5%;
+    right: 5%;
     z-index: 20;
 }
 

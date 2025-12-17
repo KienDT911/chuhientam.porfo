@@ -167,7 +167,7 @@ nav {
 
 .glow-text h1 {
     font-size: clamp(4rem, 12vw, 8rem);
-    font-weight: 800;
+    font-weight: 600;
     line-height: 1.1;
     margin-bottom: 1.5rem;
     letter-spacing: -1px;

@@ -192,3 +192,13 @@ window.addEventListener('load', updateHeaderHeightVar);
 window.addEventListener('resize', updateHeaderHeightVar);
 // call once now in case DOMContentLoaded already fired
 updateHeaderHeightVar();
+
+// Toggle a clearer header background when the page is scrolled
+function handleHeaderScroll() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    if (window.scrollY > 8) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+}
+window.addEventListener('scroll', handleHeaderScroll);
+handleHeaderScroll();

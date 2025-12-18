@@ -961,8 +961,33 @@ body.light-theme .contact-section::before {
     background: rgba(220, 38, 38, 0.6) !important;
 }
 
-body.light-theme .about-section::before,
-body.light-theme .projects-section::before,
-body.light-theme .contact-section::before {
-    background: rgba(220, 38, 38, 0.6) !important;
+/* Make header more readable when overlapping content (mobile and on scroll) */
+header {
+    z-index: 1100;
+    transition: background 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+header.scrolled {
+    background: rgba(10,10,10,0.85);
+    border-bottom-color: rgba(255,255,255,0.06);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+header.scrolled .nav-link {
+    color: #ffffff;
+}
+
+header.scrolled .nav-link.active {
+    color: var(--glow-red);
+}
+
+@media (max-width: 480px) {
+    header {
+        background: rgba(10,10,10,0.85);
+        border-bottom-color: rgba(255,255,255,0.06);
+    }
+    body.light-theme header {
+        background: rgba(248,248,248,0.92);
+        border-bottom-color: rgba(220,38,38,0.12);
+    }
 }

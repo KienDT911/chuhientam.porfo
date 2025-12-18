@@ -179,3 +179,16 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Ensure CSS variable for header height is set so fixed header doesn't overlap content
+function updateHeaderHeightVar() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    const h = header.offsetHeight;
+    document.documentElement.style.setProperty('--header-height', h + 'px');
+}
+
+window.addEventListener('load', updateHeaderHeightVar);
+window.addEventListener('resize', updateHeaderHeightVar);
+// call once now in case DOMContentLoaded already fired
+updateHeaderHeightVar();

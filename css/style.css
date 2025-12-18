@@ -12,6 +12,7 @@
     --glass-border: rgba(255, 255, 255, 0.08);
     --glow-red: #dc2626;
     --glow-red-light: #ef4444;
+    --header-height: 120px;
 }
 
 * {
@@ -156,7 +157,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 120px 5% 60px;
+    padding: calc(var(--header-height, 120px) + 20px) 5% 60px;
     position: relative;
     z-index: 10;
 }
@@ -685,7 +686,7 @@ nav {
     }
 
     .hero {
-        padding: 80px 5% 40px;
+        padding: calc(var(--header-height, 80px) + 10px) 5% 40px;
     }
 
     .hero-footer {
@@ -746,7 +747,7 @@ nav {
     }
 
     .hero {
-        padding: 60px 5% 20px;
+        padding: calc(var(--header-height, 60px) + 8px) 5% 20px;
         min-height: 90vh;
     }
 

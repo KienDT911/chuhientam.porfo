@@ -188,8 +188,14 @@ function updateHeaderHeightVar() {
     document.documentElement.style.setProperty('--header-height', h + 'px');
 }
 
-window.addEventListener('load', updateHeaderHeightVar);
-window.addEventListener('resize', updateHeaderHeightVar);
+window.addEventListener('load', () => {
+    updateHeaderHeightVar();
+    handleHeaderScroll();
+});
+window.addEventListener('resize', () => {
+    updateHeaderHeightVar();
+    handleHeaderScroll();
+});
 // call once now in case DOMContentLoaded already fired
 updateHeaderHeightVar();
 
@@ -197,7 +203,8 @@ updateHeaderHeightVar();
 function handleHeaderScroll() {
     const header = document.querySelector('header');
     if (!header) return;
-    if (window.scrollY > 8) header.classList.add('scrolled');
+    const forceOpaque = window.innerWidth <= 900;
+    if (forceOpaque || window.scrollY > 8) header.classList.add('scrolled');
     else header.classList.remove('scrolled');
 }
 window.addEventListener('scroll', handleHeaderScroll);
